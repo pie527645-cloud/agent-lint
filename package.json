@@ -1,0 +1,60 @@
+{
+  "name": "@pie527645-cloud/agent-lint",
+  "version": "1.0.0",
+  "description": "Static security, drift, frontmatter, and context-token-budget linter for AI coding agent instruction files and skills (AGENTS.md, CLAUDE.md, GEMINI.md, Cursor, Copilot, SKILL.md).",
+  "type": "module",
+  "license": "MIT",
+  "author": "pie527645-cloud",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pie527645-cloud/agent-lint.git"
+  },
+  "homepage": "https://github.com/pie527645-cloud/agent-lint#readme",
+  "bugs": {
+    "url": "https://github.com/pie527645-cloud/agent-lint/issues"
+  },
+  "engines": {
+    "node": ">=20.18.1"
+  },
+  "bin": {
+    "agent-lint": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./cli": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "lint": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json && tsc -p tsconfig.test.json",
+    "test": "node --test dist-test/tests/discovery.test.js dist-test/tests/rules-paths-commands.test.js dist-test/tests/rules-security-skills.test.js dist-test/tests/formatters-baseline.test.js dist-test/tests/cli.test.js"
+  },
+  "keywords": [
+    "agents-md",
+    "claude-md",
+    "gemini-md",
+    "cursor-rules",
+    "copilot-instructions",
+    "skill-md",
+    "linter",
+    "prompt-injection",
+    "sarif",
+    "ai-agents"
+  ],
+  "dependencies": {
+    "yaml": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.19",
+    "typescript": "^5.7.3"
+  }
+}
